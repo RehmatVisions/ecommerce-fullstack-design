@@ -14,11 +14,11 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="hidden h-[65vh] lg:block w-48 xl:w-64 bg-white border-r border-gray-200 p-4">
-      <ul className="space-y-3">
+    <aside className="hidden lg:block w-48 xl:w-56 bg-white rounded-lg p-3 flex-shrink-0">
+      <ul className="space-y-1.5">
         {categories.map((category, index) => (
           <li key={index}>
-            <a href="#" className="text-gray-700 hover:text-blue-500 text-sm">
+            <a href="#" className="text-gray-700 hover:text-blue-500 text-sm block py-1.5 hover:bg-gray-50 px-2 rounded transition-colors">
               {category}
             </a>
           </li>

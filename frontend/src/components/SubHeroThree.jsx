@@ -25,7 +25,7 @@ const SubHeroThree = () => {
 
         {/* Images Section */}
         <div className="flex flex-col gap-3 w-full items-center mt-2">
-          <img src="/assets/block.png" alt="Block" className="w-full max-w-[200px] rounded-lg shadow-md" /> {/* smaller image */}
+          <img src="/assets/block (2).png" alt="Block" className="w-full max-w-[200px] rounded-lg shadow-md" /> {/* smaller image */}
           <img src="/assets/highers.png" alt="Block One" className="w-full max-w-[200px] rounded-lg shadow-md" /> 
         </div>
 

@@ -3,7 +3,7 @@ import BannerImg from '../assets/Mask.png';
 import avatar from '../assets/avatar.png';
 const HeroSection = () => {
   return (
-    <div className="p-3 sm:p-6">
+    <div className="mb-4 sm:mb-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Main Hero Banner */}
         <div   style={{ backgroundImage: `url(${BannerImg})` }}

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import consumerImg from '../assets/consumer.png'  
 const ComputerSection = ({ onProductClick }) => {
   const products = [
     { name: 'Smart watch', price: '$19' },
@@ -16,7 +16,9 @@ const ComputerSection = ({ onProductClick }) => {
     <div className="px-3 sm:px-6 pb-3 sm:pb-6">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
         {/* Left Banner */}
-        <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg p-4 sm:p-6 relative overflow-hidden min-h-[150px] sm:min-h-[200px]">
+        <div
+               style={{ backgroundImage: `url(${consumerImg})` }}
+         className="rounded-lg p-4 sm:p-6 relative overflow-hidden min-h-[150px] sm:min-h-[200px]">
           <h2 className="text-base sm:text-xl font-bold mb-2">Consumer<br />electronics and<br />gadgets</h2>
           <button className="bg-white px-3 sm:px-4 py-2 rounded text-xs sm:text-sm hover:bg-gray-100">
             Source now

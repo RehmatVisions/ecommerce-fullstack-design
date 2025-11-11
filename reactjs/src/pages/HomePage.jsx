@@ -15,10 +15,17 @@ function HomePage({ onProductClick }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <div className="flex max-w-[1440px] mx-auto">
-        <Sidebar />
-        <main className="flex-1">
-          <HeroSection />
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6">
+        {/* Hero Section with Sidebar */}
+        <div className="flex gap-4 mb-6">
+          <Sidebar />
+          <div className="flex-1 min-w-0">
+            <HeroSection />
+          </div>
+        </div>
+
+        {/* Main Content - Full Width */}
+        <main>
           <DealsSection onProductClick={onProductClick} />
           <HomeGadgets onProductClick={onProductClick} />
           <ComputerSection onProductClick={onProductClick} />
