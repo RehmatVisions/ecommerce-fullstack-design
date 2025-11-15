@@ -2,7 +2,7 @@ import { Product } from '../models/product.model.js';
 
 // CREATE PRODUCT
 export const createProduct = async (req, res) => {
-    try {
+    try { 
         const { name, price, description, category } = req.body;
         const image = req.file?.path || 'uploads/default.png';  // multer se upload image ka path
 
