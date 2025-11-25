@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import productRoutes from "./routes/product.route.js";
+import authRoutes from './routes/auth.route.js'
 
 dotenv.config();
 
@@ -15,8 +16,8 @@ app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api/products", productRoutes);
-
-// Health check
+app.use('/api/auth',authRoutes)
+// api working
 app.get("/", (req, res) => {
   res.json({ message: "Backend API is working" });
 });
