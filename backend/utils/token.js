@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
-export const generateToken=async (id) => {
+
+const generateToken = (id, isAdmin) => {
     return jwt.sign(
-        {id},
+        { id, isAdmin },                  // ✅ include isAdmin
         process.env.JWT_SECRET,
-        {
-            expiresIn:"7d"
-        }
-    )
+        { expiresIn: '1d' }
+    );
 }
+
 export default generateToken;
