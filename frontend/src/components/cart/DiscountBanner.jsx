@@ -7,7 +7,10 @@ const DiscountBanner = () => {
         <h2 className="text-lg sm:text-2xl font-bold mb-2">Super discount on more than 100 USD</h2>
         <p className="text-xs sm:text-sm opacity-90">Have you ever finally just write dummy info</p>
       </div>
-      <button className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-medium hover:bg-orange-600 text-sm sm:text-base whitespace-nowrap">
+      <button 
+        onClick={() => window.location.href = '/products'}
+        className="bg-orange-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-medium hover:bg-orange-600 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
+      >
         Shop now
       </button>
     </div>

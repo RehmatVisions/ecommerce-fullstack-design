@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 
-const ProductImages = () => {
+const ProductImages = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0)
   
-  const images = ['👕', '👕', '👕', '👕', '👕', '👕']
+  // Use product images if available, otherwise use placeholder
+  const images = product?.images || [product?.image || product?.imageUrl] || ['👕']
 
   return (
     <div className="bg-white rounded-lg p-4 sm:p-6">
       {/* Main Image */}
       <div className="bg-gray-100 rounded-lg h-64 sm:h-80 lg:h-96 flex items-center justify-center mb-4">
-        <span className="text-6xl sm:text-8xl lg:text-9xl">{images[selectedImage]}</span>
+        {typeof images[selectedImage] === 'string' && images[selectedImage].startsWith('http') ? (
+          <img src={images[selectedImage]} alt={product?.name} className="max-w-full max-h-full object-contain" />
+        ) : (
+          <span className="text-6xl sm:text-8xl lg:text-9xl">{images[selectedImage]}</span>
+        )}
       </div>
 
       {/* Thumbnail Images */}
@@ -22,7 +27,11 @@ const ProductImages = () => {
               selectedImage === index ? 'border-2 border-blue-500' : ''
             }`}
           >
-            <span className="text-lg sm:text-2xl">{image}</span>
+            {typeof image === 'string' && image.startsWith('http') ? (
+              <img src={image} alt={`Thumbnail ${index + 1}`} className="max-w-full max-h-full object-contain p-1" />
+            ) : (
+              <span className="text-lg sm:text-2xl">{image}</span>
+            )}
           </button>
         ))}
       </div>

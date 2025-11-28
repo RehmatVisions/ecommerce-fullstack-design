@@ -14,7 +14,7 @@ const ProductListing = () => {
       {/* Secondary Navigation */}
     
 
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-4 sm:py-6">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-4 sm:py-6 pt-[50px] md:pt-[80px]">
         <Breadcrumb />
         
         <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-6">

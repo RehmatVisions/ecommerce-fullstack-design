@@ -11,7 +11,7 @@ router.post("/add", authMiddleware, addToCart);
 router.get("/", authMiddleware, getUserCart);
 
 // Remove item → Auth check → Backend se ek product remove
-router.post("/remove", authMiddleware, removeItem);
+router.delete('/remove/:productId', authMiddleware, removeItem);
 
 // Clear cart → Auth check → Backend se sab items remove
 router.delete("/clear", authMiddleware, clearCart);

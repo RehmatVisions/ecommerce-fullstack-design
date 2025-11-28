@@ -1,32 +1,43 @@
 // Import React library to create components
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // Import Link from react-router-dom to navigate between pages
 import { Link } from 'react-router-dom'
 // Import background image for the banner
 import consumerImg from '../assets/consumer.png'
-// Import product images
-import first from '../assets/eleven.png'
-import second from '../assets/twelve.png'
-import third from '../assets/thirteen.png'
-import four from '../assets/fourteen.png'
-import five from '../assets/fiveteen.png'
-import six from '../assets/sixteen.png'
-import seven from '../assets/seventeen.png'
-import eight from '../assets/nine.png'
+import { fetchProducts } from '../utils/api'
+import { useCart } from '../context/CartContext'
 
 // Component that shows consumer electronics section
 const ComputerSection = () => {
-  // Array of products with their images
-  const products = [
-    { img: first },
-    { img: second },
-    { img: third },
-    { img: four },
-    { img: five },
-    { img: six },
-    { img: seven },
-    { img: eight }
-  ]
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = async (e, productId) => {
+    e.preventDefault()
+    e.stopPropagation()
+    await addToCart(productId, 1)
+  }
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setLoading(true)
+      const data = await fetchProducts()
+      // Show up to 8 products for electronics section
+      // If less than 8 products available, show what we have
+      setProducts(data.slice(0, 8))
+      setLoading(false)
+    }
+    loadProducts()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="px-3 sm:px-6 pb-3 sm:pb-6">
+        <p className="text-gray-500">Loading electronics...</p>
+      </div>
+    )
+  }
 
   return (
     // Main container with padding
@@ -43,8 +54,11 @@ const ComputerSection = () => {
           <h2 className="text-base sm:text-xl font-bold mb-2">
             Consumer<br />electronics and<br />gadgets
           </h2>
-          {/* Call to action button */}
-          <button className="bg-white px-3 sm:px-4 py-2 rounded text-xs sm:text-sm hover:bg-gray-100">
+          {/* Call to action button - navigates to products page */}
+          <button 
+            onClick={() => window.location.href = '/products'}
+            className="bg-white px-3 sm:px-4 py-2 rounded text-xs sm:text-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300"
+          >
             Source now
           </button>
           {/* Decorative circle in bottom right */}
@@ -53,17 +67,37 @@ const ComputerSection = () => {
 
         {/* Loop through products and display each one */}
         {products.map((product, index) => (
-          // Link to product detail page
-          <Link
-            key={index}
-            to={`/product/${index + 14}`}
-            className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 hover:shadow-lg transition cursor-pointer block"
+          <div
+            key={product.id || product._id || index}
+            className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col group"
           >
             {/* Product image container */}
-            <div className="bg-gray-100 h-20 sm:h-24 rounded mb-3 flex items-center justify-center">
-              <img src={product.img} alt={`Product ${index + 1}`} />
+            <Link to={`/product/${product._id || product.id}`} className="flex-1">
+              <div className="bg-gray-100 h-20 sm:h-24 rounded mb-2 flex items-center justify-center p-2 overflow-hidden">
+                <img 
+                  src={product.image || product.imageUrl} 
+                  alt={product.name || `Product ${index + 1}`}
+                  className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </Link>
+            
+            {/* Product info */}
+            <div className="mt-auto">
+              <Link to={`/product/${product._id || product.id}`}>
+                <p className="text-xs sm:text-sm font-medium mb-1 line-clamp-2">{product.name}</p>
+                <p className="text-sm sm:text-base font-bold text-blue-600 mb-2">${product.price}</p>
+              </Link>
+              
+              {/* Add to cart button */}
+              <button
+                onClick={(e) => handleAddToCart(e, product._id || product.id)}
+                className="w-full bg-blue-500 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-600 hover:shadow-lg active:scale-95 transition-all duration-300 ease-out shadow-sm transform"
+              >
+                Add to Cart
+              </button>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>

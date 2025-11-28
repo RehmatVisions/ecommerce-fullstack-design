@@ -31,16 +31,25 @@ const SupplierCard = () => {
           </div>
         </div>
 
-        <button className="w-full bg-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-600 mb-3 text-sm sm:text-base">
+        <button 
+          onClick={() => alert('Inquiry sent! The supplier will contact you soon.')}
+          className="w-full bg-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-600 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 mb-3 text-sm sm:text-base"
+        >
           Send inquiry
         </button>
-        <button className="w-full text-blue-500 py-2 sm:py-3 rounded-lg font-medium border border-blue-500 hover:bg-blue-50 text-sm sm:text-base">
+        <button 
+          onClick={() => alert('Seller profile feature coming soon!')}
+          className="w-full text-blue-500 py-2 sm:py-3 rounded-lg font-medium border border-blue-500 hover:bg-blue-50 hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base"
+        >
           Seller's profile
         </button>
       </div>
 
       {/* Save for Later */}
-      <button className="w-full bg-white text-gray-700 py-2 sm:py-3 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 flex items-center justify-center gap-2 text-sm sm:text-base">
+      <button 
+        onClick={() => alert('Product saved to wishlist!')}
+        className="w-full bg-white text-gray-700 py-2 sm:py-3 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+      >
         <FaHeart className="text-blue-500" /> Save for later
       </button>
     </div>

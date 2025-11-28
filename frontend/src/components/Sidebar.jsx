@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   const categories = [
-    'Automobiles',
-    'Clothes and wear',
-    'Home interiors',
-    'Computer and tech',
-    'Tools, equipments',
-    'Sports and outdoor',
-    'Animal and pets',
-    'Machinery tools',
-    'More category'
+    'Electronics',
+    'Fashion & Apparel',
+    'Home & Garden',
+    'Computers & Tech',
+    'Sports & Fitness',
+    'Beauty & Health',
+    'Toys & Games',
+    'Books & Media',
+    'More Categories'
   ]
 
   return (
@@ -18,9 +19,12 @@ const Sidebar = () => {
       <ul className="space-y-1.5">
         {categories.map((category, index) => (
           <li key={index}>
-            <a href="#" className="text-gray-700 hover:text-blue-500 text-sm block py-1.5 hover:bg-gray-50 px-2 rounded transition-colors">
+            <Link 
+              to={`/products?category=${encodeURIComponent(category)}`}
+              className="text-gray-700 hover:text-blue-500 text-sm block py-1.5 hover:bg-gray-50 px-2 rounded transition-colors"
+            >
               {category}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
