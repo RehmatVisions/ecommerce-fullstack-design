@@ -5,7 +5,7 @@
 // It contains functions for authentication and product management
 
 // Backend server URL - Change this if your backend runs on a different port
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://ecommerc-backend-ycd1.onrender.com/api';
 
 // ==========================================
 // HELPER FUNCTIONS

@@ -131,7 +131,7 @@ const Products = () => {
                     >
                       <td className="px-6 py-4">
                         <img
-                          src={`http://localhost:5000/${product.image}`}
+                          src={`https://ecommerc-backend-ycd1.onrender.com/${product.image}`}
                           alt={product.name}
                           className="w-16 h-16 object-contain rounded-lg bg-gray-100"
                         />

@@ -1,6 +1,6 @@
 // API base URL
-const API_BASE_URL = 'http://localhost:5000/api';
-const BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://ecommerc-backend-ycd1.onrender.com/api';
+const BASE_URL = 'https://ecommerc-backend-ycd1.onrender.com';
 
 // Helper function to convert image path to full URL
 const getImageUrl = (imagePath) => {

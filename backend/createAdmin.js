@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 const createAdmin = async () => {
   try {
-    const response = await fetch('http://localhost:5000/api/auth/register', {
+    const response = await fetch('https://ecommerc-backend-ycd1.onrender.com/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const createAdmin = async () => {
     }
   } catch (error) {
     console.error('❌ Error:', error.message);
-    console.log('\n⚠️ Make sure your backend is running on http://localhost:5000');
+    console.log('\n⚠️ Make sure your backend is running on https://ecommerc-backend-ycd1.onrender.com');
   }
 };
 

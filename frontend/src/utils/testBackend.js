@@ -4,7 +4,7 @@
 window.testLogin = async (email, password) => {
   console.log('Testing login...');
   try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch('https://ecommerc-backend-ycd1.onrender.com/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -31,7 +31,7 @@ window.testGetUser = async () => {
   console.log('Using token:', token?.substring(0, 30) + '...');
   
   try {
-    const response = await fetch('http://localhost:5000/api/auth/getuser', {
+    const response = await fetch('https://ecommerc-backend-ycd1.onrender.com/api/auth/getuser', {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     
@@ -51,7 +51,7 @@ window.testAddToCart = async (productId) => {
   console.log('Using token:', token?.substring(0, 30) + '...');
   
   try {
-    const response = await fetch('http://localhost:5000/api/cart/add', {
+    const response = await fetch('https://ecommerc-backend-ycd1.onrender.com/api/cart/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ window.testGetCart = async () => {
   console.log('Using token:', token?.substring(0, 30) + '...');
   
   try {
-    const response = await fetch('http://localhost:5000/api/cart', {
+    const response = await fetch('https://ecommerc-backend-ycd1.onrender.com/api/cart', {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     
@@ -98,7 +98,7 @@ window.testRemoveFromCart = async (productId) => {
   const token = localStorage.getItem('token');
   
   try {
-    const url = `http://localhost:5000/api/cart/remove/${productId}`;
+    const url = `https://ecommerc-backend-ycd1.onrender.com/api/cart/remove/${productId}`;
     console.log('Remove URL:', url);
     
     const response = await fetch(url, {

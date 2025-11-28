@@ -163,7 +163,7 @@ const Dashboard = () => {
                 >
                   <div className="aspect-square bg-gray-100 rounded-lg mb-3 overflow-hidden">
                     <img
-                      src={`http://localhost:5000/${product.image}`}
+                      src={`https://ecommerc-backend-ycd1.onrender.com/${product.image}`}
                       alt={product.name}
                       className="w-full h-full object-contain"
                     />

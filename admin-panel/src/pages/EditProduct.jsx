@@ -37,7 +37,7 @@ const EditProduct = () => {
       });
       // Set existing image preview
       if (product.image) {
-        setImagePreview(`http://localhost:5000/${product.image}`);
+        setImagePreview(`https://ecommerc-backend-ycd1.onrender.com/${product.image}`);
       }
     } catch (error) {
       console.error('Error loading product:', error);
